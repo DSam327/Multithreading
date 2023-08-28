@@ -5,7 +5,6 @@
 
 # ## Implementing Merge Sort using multithreading
 
-# In[81]:
 
 
 import threading
@@ -14,7 +13,6 @@ import time
 import random
 
 
-# In[2]:
 
 
 #Since multithreading does not give a return statement we would have to modify merge sort to change 
@@ -54,9 +52,6 @@ def simple_merge_sort(arr):
     return merge_sort(arr)
 
 
-# In[3]:
-
-
 #Modified merge sort without multithreading
 
 def modified_merge_sort(arr, start,end):
@@ -92,9 +87,6 @@ def modified_merge_sort(arr, start,end):
 arr = [10,5,6,3,7,8,10]
 modified_merge_sort(arr, 0, len(arr))
 print(arr)
-
-
-# In[4]:
 
 
 #Modified Merge Sort using multithreading in place to use two threads for left and right merging
@@ -139,9 +131,6 @@ def multi_mod_merge_sort(arr, start, end):
     merge_sort(arr, start,end)
 
 
-# In[45]:
-
-
 random_list=[random.randint(1, 1000) for _ in range(8000)]
 length=len(random_list)
 
@@ -162,9 +151,6 @@ print(modified_merge_sort_time, end="\n")
 print(multi_mod_merge_sort_time)
 
 #As we can see this sorting method is not the right method
-
-
-# In[63]:
 
 
 #Changing the merge sort to instead use multiple thread on different parts and then merge it
@@ -223,9 +209,6 @@ def changed_threaded_merge_sort(arr, start, end, thread_num):
     merge(start, temp, start2, end, arr)
 
 
-# In[78]:
-
-
 #As we can see this becomes more effecient and is comparable to original sorting method
 
 random_list=[random.randint(1, 1000) for _ in range(8000)]
@@ -246,9 +229,6 @@ changed_threaded_merge_sort_time=time.time()-start_time
 print(simple_sort_time, end="\n")
 print(modified_merge_sort_time, end="\n")
 print(changed_threaded_merge_sort_time)
-
-
-# In[91]:
 
 
 data={"Simple": 0, "Modified": 0, "Multithreading": 0}
@@ -281,9 +261,6 @@ for i in range(100):
         data["Simple"]+=1
 
 
-# In[92]:
-
-
 methods=list(data.keys())
 values=list(data.values())
 plt.bar(methods, values, color ='maroon', width = 0.4)
@@ -291,9 +268,6 @@ plt.xlabel("Sorting Methods")
 plt.ylabel("No. of times it is fastest")
 plt.title("Sorting Methods with their fastest time")
 plt.show()
-
-
-# In[93]:
 
 
 avg_time["Simple"]/=100
