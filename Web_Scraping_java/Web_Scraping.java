@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 public class Web_Scraping {
     public static List<List<String>> emails=new ArrayList<>();
     public static void main(String[] args) {
-        String xmlUrl = "https://thapar.edu/sitemap.xml";
+        String xmlUrl = "https://sample.com/sample.xml";
         List<String> urls = extractUrlsFromXML(xmlUrl);
         List<Long> time=new ArrayList<>();
         for(int i=0;i<8;i++){
